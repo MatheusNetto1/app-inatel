@@ -141,3 +141,19 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Testes - Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Cobertura de testes
+coverage/
+coverage-final.json
+
+# Arquivos temporários do Vitest
+.vitest/
+
+# Logs
+*.log
+npm-debug.log*

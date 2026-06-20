@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Inatel Móvel — Tesouraria</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== TELA 1: MENU ===================== -->
+  <div class="screen active" id="screen-menu">
+    <div class="phone-shell">
+      <header class="app-header">
+        <div class="header-top">
+          <span class="header-logo-text">INATEL</span>
+          <button class="icon-btn" aria-label="Notificações">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </button>
+        </div>
+        <div class="header-user">
+          <div class="avatar">MN</div>
+          <div class="user-info">
+            <span class="user-name">Matheus Netto</span>
+            <span class="user-course">Engenharia de Software</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="screen-body">
+        <p class="section-label">Serviços</p>
+        <nav class="menu-list">
+          <button class="menu-item" onclick="goTo('screen-catalog')">
+            <span class="menu-icon menu-icon--green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </span>
+            <div class="menu-text">
+              <span class="menu-title">Notas e Frequências</span>
+              <span class="menu-sub">Consultar boletim</span>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <button class="menu-item" onclick="goTo('screen-catalog')">
+            <span class="menu-icon menu-icon--blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </span>
+            <div class="menu-text">
+              <span class="menu-title">Horário de Aulas</span>
+              <span class="menu-sub">Grade semanal</span>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <button class="menu-item menu-item--highlight" onclick="goTo('screen-catalog')">
+            <span class="menu-icon menu-icon--red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </span>
+            <div class="menu-text">
+              <span class="menu-title">Tesouraria &amp; Documentos</span>
+              <span class="menu-sub">Taxas, pagamentos e emissão</span>
+            </div>
+            <div class="badge">1</div>
+            <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <button class="menu-item" onclick="goTo('screen-catalog')">
+            <span class="menu-icon menu-icon--purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </span>
+            <div class="menu-text">
+              <span class="menu-title">Biblioteca</span>
+              <span class="menu-sub">Acervo e reservas</span>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </nav>
+
+        <p class="section-label" style="margin-top: 24px;">Pendências</p>
+        <div class="alert-card" onclick="goTo('screen-catalog')">
+          <div class="alert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="alert-text">
+            <span class="alert-title">Taxa pendente</span>
+            <span class="alert-desc">Histórico Escolar — R$ 15,00</span>
+          </div>
+          <span class="alert-cta">Pagar →</span>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="bottom-nav-item bottom-nav-item--active">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>Início</span>
+        </button>
+        <button class="bottom-nav-item" onclick="goTo('screen-requests')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>Solicitações</span>
+        </button>
+        <button class="bottom-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+          <span>Perfil</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===================== TELA 2: CATÁLOGO ===================== -->
+  <div class="screen" id="screen-catalog">
+    <div class="phone-shell">
+      <header class="app-header app-header--inner">
+        <button class="back-btn" onclick="goBack()" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="inner-title">Tesouraria &amp; Documentos</span>
+        <div style="width:40px"></div>
+      </header>
+
+      <div class="screen-body">
+        <p class="catalog-intro">Selecione o documento que deseja emitir:</p>
+
+        <div class="doc-list" id="doc-list">
+          <button class="doc-card" data-price="0" data-name="Declaração de Matrícula (1ª via)" data-deadline="Imediato" onclick="selectDoc(this)">
+            <div class="doc-info">
+              <span class="doc-name">Declaração de Matrícula</span>
+              <span class="doc-detail">1ª via · Prazo: Imediato</span>
+            </div>
+            <div class="doc-right">
+              <span class="doc-badge doc-badge--free">Gratuito</span>
+              <div class="doc-check" aria-hidden="true"></div>
+            </div>
+          </button>
+
+          <button class="doc-card" data-price="15" data-name="Histórico Escolar Oficial" data-deadline="Até 2 dias úteis" onclick="selectDoc(this)">
+            <div class="doc-info">
+              <span class="doc-name">Histórico Escolar Oficial</span>
+              <span class="doc-detail">Prazo: Até 2 dias úteis</span>
+            </div>
+            <div class="doc-right">
+              <span class="doc-price">R$ 15,00</span>
+              <div class="doc-check" aria-hidden="true"></div>
+            </div>
+          </button>
+
+          <button class="doc-card" data-price="10" data-name="Certificado de Conclusão" data-deadline="Até 5 dias úteis" onclick="selectDoc(this)">
+            <div class="doc-info">
+              <span class="doc-name">Certificado de Conclusão</span>
+              <span class="doc-detail">Prazo: Até 5 dias úteis</span>
+            </div>
+            <div class="doc-right">
+              <span class="doc-price">R$ 10,00</span>
+              <div class="doc-check" aria-hidden="true"></div>
+            </div>
+          </button>
+
+          <button class="doc-card" data-price="0" data-name="Declaração de Vínculo Empregatício" data-deadline="Imediato" onclick="selectDoc(this)">
+            <div class="doc-info">
+              <span class="doc-name">Declaração de Vínculo</span>
+              <span class="doc-detail">Para fins empregatícios · Prazo: Imediato</span>
+            </div>
+            <div class="doc-right">
+              <span class="doc-badge doc-badge--free">Gratuito</span>
+              <div class="doc-check" aria-hidden="true"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="catalog-footer" id="catalog-footer">
+        <div class="footer-total" id="footer-total" style="display:none">
+          <span class="footer-total-label">Total selecionado</span>
+          <span class="footer-total-value" id="footer-total-value">R$ 0,00</span>
+        </div>
+        <button class="btn-primary" id="btn-advance" onclick="goToPayment()" disabled>
+          Avançar para Pagamento
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== TELA 3: PAGAMENTO ===================== -->
+  <div class="screen" id="screen-payment">
+    <div class="phone-shell">
+      <header class="app-header app-header--inner">
+        <button class="back-btn" onclick="goBack()" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="inner-title">Pagamento da Taxa</span>
+        <div style="width:40px"></div>
+      </header>
+
+      <div class="screen-body">
+        <div class="payment-summary">
+          <span class="payment-summary-label" id="pay-doc-name">Histórico Escolar Oficial</span>
+          <span class="payment-summary-value" id="pay-doc-price">R$ 15,00</span>
+        </div>
+
+        <div class="payment-tabs">
+          <button class="pay-tab pay-tab--active" id="tab-pix" onclick="switchTab('pix')">Pix</button>
+          <button class="pay-tab" id="tab-card" onclick="switchTab('card')">Cartão de Crédito</button>
+        </div>
+
+        <!-- PIX PANEL -->
+        <div id="panel-pix">
+          <div class="qr-wrapper">
+            <div class="qr-box" id="qr-box">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="qr-svg">
+                <!-- QR Code simulado com padrão visual -->
+                <rect width="200" height="200" fill="white"/>
+                <!-- finder patterns -->
+                <rect x="10" y="10" width="60" height="60" fill="none" stroke="#1a2e5a" stroke-width="5"/>
+                <rect x="20" y="20" width="40" height="40" fill="#1a2e5a"/>
+                <rect x="30" y="30" width="20" height="20" fill="white"/>
+                <rect x="130" y="10" width="60" height="60" fill="none" stroke="#1a2e5a" stroke-width="5"/>
+                <rect x="140" y="20" width="40" height="40" fill="#1a2e5a"/>
+                <rect x="150" y="30" width="20" height="20" fill="white"/>
+                <rect x="10" y="130" width="60" height="60" fill="none" stroke="#1a2e5a" stroke-width="5"/>
+                <rect x="20" y="140" width="40" height="40" fill="#1a2e5a"/>
+                <rect x="30" y="150" width="20" height="20" fill="white"/>
+                <!-- data modules -->
+                <rect x="80" y="10" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="100" y="10" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="80" y="30" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="100" y="50" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="110" y="30" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="80" y="80" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="100" y="80" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="120" y="80" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="140" y="80" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="160" y="80" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="180" y="80" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="80" y="100" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="110" y="100" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="140" y="100" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="170" y="100" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="80" y="120" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="100" y="120" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="120" y="120" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="80" y="140" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="110" y="140" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="130" y="140" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="160" y="140" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="80" y="160" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="100" y="160" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="120" y="160" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="150" y="160" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="170" y="160" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="80" y="180" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="110" y="180" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="140" y="180" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="160" y="180" width="10" height="10" fill="#1a2e5a"/>
+                <rect x="180" y="180" width="10" height="10" fill="#1a2e5a"/>
+              </svg>
+              <div class="qr-logo">
+                <span>Pix</span>
+              </div>
+            </div>
+            <div class="qr-timer" id="qr-timer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Expira em <strong id="timer-display">10:00</strong>
+            </div>
+          </div>
+
+          <div class="pix-copy-section">
+            <p class="pix-copy-label">Pix Copia e Cola</p>
+            <div class="pix-copy-box">
+              <span class="pix-code" id="pix-code">00020101021226830014br.gov.bcb.pix2561inatel.edu.br/pix/qr/v2/2a4b6c8d...</span>
+              <button class="copy-btn" id="copy-btn" onclick="copyPix()" aria-label="Copiar código Pix">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copiar
+              </button>
+            </div>
+          </div>
+
+          <button class="btn-primary btn-primary--ghost" onclick="confirmPayment()">
+            Já efetuei o pagamento
+          </button>
+        </div>
+
+        <!-- CARD PANEL -->
+        <div id="panel-card" style="display:none">
+          <div class="card-form">
+            <div class="form-group">
+              <label class="form-label">Número do cartão</label>
+              <input type="text" class="form-input" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Validade</label>
+                <input type="text" class="form-input" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">CVV</label>
+                <input type="text" class="form-input" placeholder="123" maxlength="3" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nome no cartão</label>
+              <input type="text" class="form-input" placeholder="MATHEUS NETTO" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Parcelamento</label>
+              <select class="form-input form-select">
+                <option>1x de R$ 15,00 (sem juros)</option>
+                <option>2x de R$ 7,50 (sem juros)</option>
+                <option>3x de R$ 5,00 (sem juros)</option>
+              </select>
+            </div>
+            <button class="btn-primary" style="margin-top:8px" onclick="confirmPayment()">
+              Pagar R$ <span id="card-pay-value">15,00</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== OVERLAY: PROCESSANDO ===================== -->
+  <div class="overlay" id="overlay-processing">
+    <div class="overlay-card">
+      <div class="spinner"></div>
+      <p class="overlay-title">Processando pagamento…</p>
+      <p class="overlay-sub">Aguarde a confirmação do banco</p>
+    </div>
+  </div>
+
+  <!-- ===================== OVERLAY: SUCESSO ===================== -->
+  <div class="overlay" id="overlay-success">
+    <div class="overlay-card">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p class="overlay-title">Pagamento confirmado!</p>
+      <p class="overlay-sub">Protocolo <strong id="protocol-number">#20260530</strong></p>
+      <p class="overlay-sub" style="margin-top:4px">Seu documento será processado em breve.</p>
+      <button class="btn-primary" style="margin-top:24px" onclick="goTo('screen-requests')">
+        Ver minhas solicitações
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================== TELA 4: SOLICITAÇÕES ===================== -->
+  <div class="screen" id="screen-requests">
+    <div class="phone-shell">
+      <header class="app-header app-header--inner">
+        <button class="back-btn" onclick="goTo('screen-menu')" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="inner-title">Minhas Solicitações</span>
+        <div style="width:40px"></div>
+      </header>
+
+      <div class="screen-body">
+        <div class="requests-list" id="requests-list">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <div class="catalog-footer">
+        <button class="btn-primary" onclick="goTo('screen-catalog')">
+          + Nova solicitação
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== TOAST ===================== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

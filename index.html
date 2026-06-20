@@ -17,7 +17,7 @@
       <header class="app-header">
         <div class="header-top">
           <span class="header-logo-text">INATEL</span>
-          <button class="icon-btn" aria-label="Notificações">
+          <button class="icon-btn" aria-label="Notificações" onclick="showToast('Funcionalidade fora do escopo do protótipo')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           </button>
         </div>
@@ -33,7 +33,7 @@
       <div class="screen-body">
         <p class="section-label">Serviços</p>
         <nav class="menu-list">
-          <button class="menu-item" onclick="goTo('screen-catalog')">
+          <button class="menu-item" onclick="showToast('Funcionalidade fora do escopo do protótipo')">
             <span class="menu-icon menu-icon--green">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             </span>
@@ -44,7 +44,7 @@
             <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
 
-          <button class="menu-item" onclick="goTo('screen-catalog')">
+          <button class="menu-item" onclick="showToast('Funcionalidade fora do escopo do protótipo')">
             <span class="menu-icon menu-icon--blue">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </span>
@@ -67,7 +67,7 @@
             <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
 
-          <button class="menu-item" onclick="goTo('screen-catalog')">
+          <button class="menu-item" onclick="showToast('Funcionalidade fora do escopo do protótipo')">
             <span class="menu-icon menu-icon--purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             </span>
@@ -93,7 +93,7 @@
       </div>
 
       <nav class="bottom-nav">
-        <button class="bottom-nav-item bottom-nav-item--active">
+        <button class="bottom-nav-item bottom-nav-item--active" onclick="showToast('Funcionalidade fora do escopo do protótipo')">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
           <span>Início</span>
         </button>
@@ -101,7 +101,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span>Solicitações</span>
         </button>
-        <button class="bottom-nav-item">
+        <button class="bottom-nav-item" onclick="showToast('Funcionalidade fora do escopo do protótipo')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
           <span>Perfil</span>
         </button>
@@ -338,7 +338,7 @@
       <p class="overlay-title">Pagamento confirmado!</p>
       <p class="overlay-sub">Protocolo <strong id="protocol-number">#20260530</strong></p>
       <p class="overlay-sub" style="margin-top:4px">Seu documento será processado em breve.</p>
-      <button class="btn-primary" style="margin-top:24px" onclick="goTo('screen-requests')">
+      <button class="btn-primary" style="margin-top:24px" onclick="goToRequests()">
         Ver minhas solicitações
       </button>
     </div>

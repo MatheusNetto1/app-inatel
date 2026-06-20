@@ -21,31 +21,55 @@ const state = {
   ],
 };
 
+function closeAllOverlays() {
+  document
+    .querySelectorAll('.overlay')
+    .forEach(overlay => overlay.classList.remove('active'));
+}
+
+function goToRequests() {
+  closeSuccess();
+  goTo('screen-requests');
+}
+
 // ─── Navigation ──────────────────────────────────────────────
-function goTo(screenId) {
+function goTo(screenId, addToHistory = true) {
+  closeAllOverlays();
+
   const current = document.querySelector('.screen.active');
+
   if (current) {
-    state.screenHistory.push(current.id);
+    if (addToHistory) {
+      state.screenHistory.push(current.id);
+    }
+
     current.classList.remove('active');
   }
-  const next = document.getElementById(screenId);
-  if (next) next.classList.add('active');
 
-  // Side effects per screen
+  const next = document.getElementById(screenId);
+
+  if (next) {
+    next.classList.add('active');
+  }
+
   if (screenId === 'screen-payment') {
     startTimer();
     updatePaymentScreen();
   }
+
   if (screenId === 'screen-requests') {
     renderRequests();
   }
+
   if (screenId !== 'screen-payment') {
     stopTimer();
   }
 
-  // Scroll to top
   const body = next?.querySelector('.screen-body');
-  if (body) body.scrollTop = 0;
+
+  if (body) {
+    body.scrollTop = 0;
+  }
 }
 
 function goBack() {
@@ -95,33 +119,66 @@ function goToPayment() {
   if (!state.selectedDoc) return;
 
   if (state.selectedDoc.price === 0) {
-    // Gratuito: pula pagamento, vai direto para sucesso
-    addRequest('done');
+    addRequest('processing');
     showSuccess();
     return;
   }
+
+  state.timerSeconds = 600;
+
   goTo('screen-payment');
 }
 
 // ─── Payment screen ──────────────────────────────────────────
 function updatePaymentScreen() {
   if (!state.selectedDoc) return;
-  const name  = document.getElementById('pay-doc-name');
+
+  const name = document.getElementById('pay-doc-name');
   const price = document.getElementById('pay-doc-price');
   const cardVal = document.getElementById('card-pay-value');
 
-  name.textContent  = state.selectedDoc.name;
-  price.textContent = `R$ ${state.selectedDoc.price.toFixed(2).replace('.', ',')}`;
-  if (cardVal) cardVal.textContent = state.selectedDoc.price.toFixed(2).replace('.', ',');
+  name.textContent = state.selectedDoc.name;
 
-  // Update card select options
+  price.textContent =
+    `R$ ${state.selectedDoc.price.toFixed(2).replace('.', ',')}`;
+
+  if (cardVal) {
+    cardVal.textContent =
+      state.selectedDoc.price.toFixed(2).replace('.', ',');
+  }
+
+  const qrBox = document.getElementById('qr-box');
+
+  if (qrBox) {
+    qrBox.style.opacity = '1';
+  }
+
+  const timerEl = document.getElementById('qr-timer');
+
+  if (timerEl) {
+    timerEl.innerHTML = `
+      <svg viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="2"
+           width="14"
+           height="14">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      Expira em <strong id="timer-display">10:00</strong>
+    `;
+  }
+
   const sel = document.querySelector('.form-select');
+
   if (sel && state.selectedDoc.price > 0) {
     const p = state.selectedDoc.price;
+
     sel.innerHTML = `
       <option>1x de R$ ${fmt(p)} (sem juros)</option>
-      <option>2x de R$ ${fmt(p/2)} (sem juros)</option>
-      <option>3x de R$ ${fmt(p/3)} (sem juros)</option>
+      <option>2x de R$ ${fmt(p / 2)} (sem juros)</option>
+      <option>3x de R$ ${fmt(p / 3)} (sem juros)</option>
     `;
   }
 }
@@ -143,12 +200,21 @@ function switchTab(tab) {
 
 // ─── Timer ───────────────────────────────────────────────────
 function startTimer() {
-  stopTimer();
-  state.timerSeconds = 600;
+  if (state.timerInterval) {
+    return;
+  }
+
+  if (state.timerSeconds <= 0) {
+    state.timerSeconds = 600;
+  }
+
   renderTimer();
+
   state.timerInterval = setInterval(() => {
     state.timerSeconds--;
+
     renderTimer();
+
     if (state.timerSeconds <= 0) {
       stopTimer();
       expirePix();
@@ -220,20 +286,28 @@ function confirmPayment() {
 }
 
 function showSuccess() {
-  const protocol = '#' + Math.floor(20260000 + Math.random() * 9999);
-  const el = document.getElementById('protocol-number');
-  if (el) el.textContent = protocol;
+  const protocol =
+    '#' + Math.floor(20260000 + Math.random() * 9999);
 
-  // Update the last added request protocol
+  const el = document.getElementById('protocol-number');
+
+  if (el) {
+    el.textContent = protocol;
+  }
+
   if (state.requests.length > 0) {
     state.requests[state.requests.length - 1].protocol = protocol;
   }
 
-  document.getElementById('overlay-success').classList.add('active');
+  document
+    .getElementById('overlay-success')
+    .classList.add('active');
 }
 
 function closeSuccess() {
-  document.getElementById('overlay-success').classList.remove('active');
+  document
+    .getElementById('overlay-success')
+    .classList.remove('active');
 }
 
 // ─── Requests ────────────────────────────────────────────────

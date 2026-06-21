@@ -2,19 +2,26 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
+  testMatch: '**/*.spec.js',
 
-  fullyParallel: true,
+  timeout: 30_000,
+
+  retries: process.env.CI ? 1 : 0,
+
+  workers: 1,
+
+  reporter: [
+    ['list'],
+    ['html', { outputFolder: 'test-results/report', open: 'never' }],
+  ],
 
   use: {
-    baseURL: 'http://127.0.0.1:5500',
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-  },
+    baseURL: 'http://localhost:5173',
 
-  webServer: {
-    command: 'npx http-server . -p 5500',
-    url: 'http://127.0.0.1:5500',
-    reuseExistingServer: !process.env.CI,
+    viewport: { width: 390, height: 844 },
+
+    screenshot: 'only-on-failure',
+    trace:      'on-first-retry',
   },
 
   projects: [
@@ -22,5 +29,17 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+    {
+      name: 'mobile-chrome',
+      use: { ...devices['Pixel 7'] },
+    },
   ],
+
+  webServer: {
+    command:             'vite --port 5173',
+    url:                 'http://localhost:5173',
+    reuseExistingServer: !process.env.CI,
+    stdout: 'ignore',
+    stderr: 'pipe',
+  },
 });

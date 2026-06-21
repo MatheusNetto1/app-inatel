@@ -44,7 +44,7 @@ jobs:
       - name: Upload dos arquivos do Frontend
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'src'
+          path: '.'
 
       - name: Publicar no GitHub Pages
         id: deployment

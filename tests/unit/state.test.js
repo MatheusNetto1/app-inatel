@@ -3,7 +3,7 @@ import {
   setSelectedDoc,
   getSelectedDoc,
   clearSelectedDoc
-} from '../../js/state.js';
+} from '../../src/js/state.js';
 
 describe('selectedDoc', () => {
   it('deve selecionar documento', () => {

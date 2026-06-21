@@ -1,0 +1,34 @@
+{
+  "name": "app-inatel",
+  "version": "1.0.0",
+  "description": "Protótipo frontend para a disciplina de Interação Homem-Máquina (IHM) englobando módulos de tesouraria e documentos.",
+  "main": "src/index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src",
+    "test": "vitest",
+    "test:watch": "vitest",
+    "test:run": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusNetto1/app-inatel.git"
+  },
+  "keywords": [
+    "frontend",
+    "ihm",
+    "inatel"
+  ],
+  "author": "Matheus Netto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatheusNetto1/app-inatel/issues"
+  },
+  "homepage": "https://github.com/MatheusNetto1/app-inatel#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.0",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.9"
+  }
+}

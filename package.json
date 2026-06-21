@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "type": "module",
   "scripts": {
-    "dev": "vite src",
+    "dev": "vite",
     "test": "vitest",
     "test:watch": "vitest",
     "test:run": "vitest run",

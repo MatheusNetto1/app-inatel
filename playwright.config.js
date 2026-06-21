@@ -12,7 +12,7 @@ export default defineConfig({
   },
 
   webServer: {
-    command: 'npx http-server . -p 5500',
+    command: 'npx http-server src -p 5500',
     url: 'http://127.0.0.1:5500',
     reuseExistingServer: !process.env.CI,
   },

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatCurrency } from '../../js/utils';
+import { formatCurrency } from '../../src/js/utils';
 
 describe('formatCurrency', () => {
   it('deve formatar valor inteiro', () => {

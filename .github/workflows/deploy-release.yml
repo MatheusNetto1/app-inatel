@@ -37,10 +37,10 @@ jobs:
       - name: Configurar o ambiente do Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload dos arquivos do Frontend (Raiz do projeto)
+      - name: Upload dos arquivos do Frontend
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: 'src'
 
       - name: Publicar no GitHub Pages
         id: deployment

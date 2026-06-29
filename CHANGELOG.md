@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/MatheusNetto1/app-inatel/compare/v1.1.0...v1.1.1) (2026-06-21)
+
+
+### Bug Fixes
+
+* **config:** mover index.html para a raiz para corrigir deploy do github pages ([e450a09](https://github.com/MatheusNetto1/app-inatel/commit/e450a0938d10e590209c07b42a2f2a844439bf15))
+* **ui:** corrigir caminhos relativos do css e js no index.html ([c878722](https://github.com/MatheusNetto1/app-inatel/commit/c8787224cfd7f75232a28f0f7f4bbdb4bb1c3339))
+
 ## [1.1.0](https://github.com/MatheusNetto1/app-inatel/compare/v1.0.0...v1.1.0) (2026-06-21)
 
 

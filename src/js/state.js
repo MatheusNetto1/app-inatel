@@ -21,6 +21,19 @@ import { generateProtocol, todayFormatted } from './utils.js';
 
 const TIMER_INITIAL = 600;
 
+function createInitialRequests() {
+  return [
+    {
+      id: 1,
+      name: 'Declaração de Matrícula (1ª via)',
+      protocol: '#20260415',
+      date: '15/04/2026',
+      status: 'done',
+      price: 0,
+    },
+  ];
+}
+
 const state = {
   /** @type {SelectedDoc | null} */
   selectedDoc: null,
@@ -35,16 +48,7 @@ const state = {
   screenHistory: [],
 
   /** @type {DocumentRequest[]} */
-  requests: [
-    {
-      id: 1,
-      name: 'Declaração de Matrícula (1ª via)',
-      protocol: '#20260415',
-      date: '15/04/2026',
-      status: 'done',
-      price: 0,
-    },
-  ],
+  requests: createInitialRequests(),
 };
 
 // ─── Seletores (leitura) ──────────────────────────────────────
@@ -82,6 +86,10 @@ export function decrementTimer() {
 
 export function resetTimer() {
   state.timerSeconds = TIMER_INITIAL;
+}
+
+export function resetRequests() {
+  state.requests = createInitialRequests();
 }
 
 export function pushScreen(screenId) {

@@ -12,7 +12,7 @@ export default defineConfig({
 
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'test-results/report', open: 'never' }],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
   ],
 
   use: {

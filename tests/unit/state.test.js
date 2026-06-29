@@ -11,6 +11,7 @@ import {
   clearTimerInterval,
   decrementTimer,
   resetTimer,
+  resetRequests,
   pushScreen,
   popScreen,
   addRequest,
@@ -23,6 +24,7 @@ beforeEach(() => {
   clearSelectedDoc();
   clearTimerInterval();
   resetTimer();
+  resetRequests();
 
   while (popScreen() !== null) { /* drain */ }
 });

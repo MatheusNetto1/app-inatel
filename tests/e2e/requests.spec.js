@@ -124,7 +124,7 @@ test.describe('Minhas Solicitações', () => {
     test('botão voltar retorna ao menu principal', async ({ page }) => {
       await page.goto('/');
       await page.click('.bottom-nav-item:has-text("Solicitações")');
-      await page.click('.back-btn');
+      await page.locator('#screen-requests .back-btn').click();
       await expect(page.locator('#screen-menu')).toHaveClass(/active/);
     });
   });

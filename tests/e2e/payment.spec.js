@@ -54,7 +54,7 @@ test.describe('Pagamento', () => {
       await expect(page.locator('#overlay-processing')).toBeVisible();
 
       await expect(page.locator('#overlay-success')).toBeVisible({ timeout: 5000 });
-      await expect(page.locator('.overlay-title')).toContainText('Pagamento confirmado');
+      await expect(page.locator('#overlay-success .overlay-title')).toContainText('Pagamento confirmado');
     });
 
     test('overlay de sucesso exibe número de protocolo válido', async ({ page }) => {
@@ -72,6 +72,16 @@ test.describe('Pagamento', () => {
       await expect(page.locator('#overlay-success')).toBeVisible({ timeout: 5000 });
       await page.click('text=Ver minhas solicitações');
       await expect(page.locator('#screen-requests')).toHaveClass(/active/);
+    });
+    test('protocolo confirmado é o mesmo exibido no histórico', async ({ page }) => {
+      await goToPaymentScreen(page);
+      await page.click('text=Já efetuei o pagamento');
+      await expect(page.locator('#overlay-success')).toBeVisible({ timeout: 5000 });
+
+      const protocol = await page.locator('#protocol-number').textContent();
+      await page.click('text=Ver minhas solicitações');
+
+      await expect(page.locator('.request-card').first()).toContainText(protocol);
     });
   });
 
@@ -129,7 +139,7 @@ test.describe('Pagamento', () => {
   test.describe('Navegação', () => {
     test('botão voltar retorna ao catálogo', async ({ page }) => {
       await goToPaymentScreen(page);
-      await page.click('.back-btn');
+      await page.locator('#screen-payment .back-btn').click();
       await expect(page.locator('#screen-catalog')).toHaveClass(/active/);
     });
   });

@@ -53,7 +53,7 @@ test.describe('Catálogo de Documentos', () => {
     await page.click('[data-name="Declaração de Matrícula (1ª via)"]');
     await page.click('#btn-advance');
     await expect(page.locator('#overlay-success')).toBeVisible();
-    await expect(page.locator('.overlay-title')).toContainText('Pagamento confirmado');
+    await expect(page.locator('#overlay-success .overlay-title')).toContainText('Pagamento confirmado');
   });
 
   test('documento pago avança para a tela de pagamento', async ({ page }) => {

@@ -21,7 +21,6 @@ import {
   formatExpiry,
   buildInstallments,
   isTimerWarning,
-  generateProtocol,
 } from './utils.js';
 
 // ─── Helpers de DOM ──────────────────────────────────────────
@@ -168,8 +167,8 @@ function goToPayment() {
   if (!doc) return;
 
   if (doc.price === 0) {
-    addRequest('processing');
-    showSuccessOverlay();
+    const request = addRequest('processing');
+    showSuccessOverlay(request.protocol);
     resetCatalog();
     return;
   }
@@ -346,14 +345,13 @@ function confirmPayment() {
 
   setTimeout(() => {
     hideOverlay('overlay-processing');
-    addRequest('done');
-    showSuccessOverlay();
+    const request = addRequest('done');
+    showSuccessOverlay(request.protocol);
     resetCatalog();
   }, 2000);
 }
 
-function showSuccessOverlay() {
-  const protocol   = generateProtocol();
+function showSuccessOverlay(protocol) {
   const protocolEl = document.getElementById('protocol-number');
   if (protocolEl) protocolEl.textContent = protocol;
   showOverlay('overlay-success');

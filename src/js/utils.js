@@ -46,7 +46,8 @@ export function formatExpiry(raw) {
  */
 export function generateProtocol() {
   const suffix = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
-  return `#2026${suffix}`;
+  const year = new Date().getFullYear();
+  return `#${year}${suffix}`;
 }
 
 /**
